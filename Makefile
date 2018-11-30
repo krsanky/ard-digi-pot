@@ -86,7 +86,7 @@ VARIANT = standard
 #
 # To use the SD library:
 # LIBRARIES=SD File utility/SdFile utility/SdVolume utility/Sd2Card
-LIBRARIES=
+LIBRARIES= SPI
 
 ############################################################################
 # Below here nothing should be changed...
@@ -300,6 +300,7 @@ clean:
 	applet/$(TARGET).map applet/$(TARGET).sym applet/$(TARGET).lss applet/core.a \
 	$(OBJ) $(LST) $(SRC:.c=.s) $(SRC:.c=.d) $(CXXSRC:.cpp=.s) $(CXXSRC:.cpp=.d) utility/*
 	if [ -d utility ]; then $(REMOVEDIR) utility; fi
+	rm -f *.BAK
 
 .PHONY:	all build elf hex eep lss sym program coff extcoff clean applet_files sizebefore sizeafter
 
